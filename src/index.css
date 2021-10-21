@@ -12,6 +12,11 @@ code {
     monospace;
 }
 
+header {
+  text-align: center;
+  font-size: 50px;
+}
+
 .loading {
   align-items: center;
   display: flex;

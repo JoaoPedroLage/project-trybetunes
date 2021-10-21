@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import './index.css';
 import Login from './pages/Login';
 import Search from './pages/Search';
 import Album from './pages/Album';
@@ -12,7 +13,7 @@ export default class App extends React.Component {
   render() {
     return (
       <main>
-        <p>TrybeTunes</p>
+        <header>TrybeTunes</header>
         <BrowserRouter>
           <Switch>
             <Route exact path="/" component={ Login } />
