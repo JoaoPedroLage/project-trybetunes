@@ -45,7 +45,7 @@ export default class Login extends React.Component {
       { loading: true },
       async () => {
         await createUser({ name: loginName });
-        this.setState({ logged: true, loading: false });
+        this.setState({ logged: true });
       },
     );
   }
@@ -54,10 +54,10 @@ export default class Login extends React.Component {
     const { isLoginButtonDisabled, loginName, logged, loading } = this.state;
     return (
       <div data-testid="page-login">
-        { loading === true && <Loading /> }
-        { logged === true ? <Redirect to="/search" /> : (
+        { logged === true && <Redirect to="/search" /> }
+        { loading === true ? <Loading /> : (
           <>
-            <h1>Login</h1>
+            <h2>Login</h2>
             <form>
               <label htmlFor="login-name-input">
                 <input

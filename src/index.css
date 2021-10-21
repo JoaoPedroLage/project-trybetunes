@@ -14,7 +14,10 @@ code {
 
 header {
   text-align: center;
-  font-size: 50px;
+}
+
+.title-page {
+  border: black solid 1px;
 }
 
 .loading {
