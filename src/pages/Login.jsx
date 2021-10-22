@@ -61,18 +61,18 @@ export default class Login extends React.Component {
             <form>
               <label htmlFor="login-name-input">
                 <input
+                  data-testid="login-name-input"
                   type="textarea"
                   placeholder="Seu nome"
                   name="loginName"
-                  data-testid="login-name-input"
                   value={ loginName }
                   onChange={ this.onLoginButtonClick }
                 />
               </label>
               <button
+                data-testid="login-submit-button"
                 type="submit"
                 name="isLoginButtonDisabled"
-                data-testid="login-submit-button"
                 disabled={ isLoginButtonDisabled }
                 onClick={ this.saveUser }
               >

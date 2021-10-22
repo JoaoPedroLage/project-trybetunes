@@ -16,6 +16,10 @@ header {
   text-align: center;
 }
 
+/* h1 {
+  margin: 0 0;
+} */
+
 .title-page {
   border: black solid 1px;
 }
@@ -27,8 +31,9 @@ header {
 
 .links {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   text-align: start;
+  justify-content: space-around;
 }
 
 .header-component {
