@@ -11,7 +11,7 @@ export default class Header extends React.Component {
 
     this.state = {
       loading: true,
-      UserName: '',
+      userName: '',
     };
   }
 
@@ -24,19 +24,19 @@ export default class Header extends React.Component {
       { loading: true },
       async () => {
         const response = await getUser();
-        this.setState({ UserName: response.name, loading: false });
+        this.setState({ userName: response.name, loading: false });
       },
     );
   }
 
   render() {
-    const { loading, UserName } = this.state;
+    const { loading, userName } = this.state;
     return (
       <header className="header-component" data-testid="header-component">
         { loading === true ? <Loading /> : (
           <>
             <h1 data-testid="header-user-name">
-              {UserName}
+              {userName}
             </h1>
             <div className="links">
               <Link to="/search" data-testid="link-to-search">

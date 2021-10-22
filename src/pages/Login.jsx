@@ -15,15 +15,15 @@ export default class Login extends React.Component {
   constructor() {
     super();
 
-    this.onLoginButtonClick = this.onLoginButtonClick.bind(this);
-    this.saveUser = this.saveUser.bind(this);
+    this.onLoginInputChange = this.onLoginInputChange.bind(this);
+    this.onSaveUser = this.onSaveUser.bind(this);
 
     this.state = {
       ...defautState,
     };
   }
 
-  onLoginButtonClick({ target }) {
+  onLoginInputChange({ target }) {
     const { name, value } = target;
 
     this.setState(({ [name]: value }), () => {
@@ -32,20 +32,18 @@ export default class Login extends React.Component {
 
       if (loginName.length >= minChar) {
         this.setState({ isLoginButtonDisabled: false });
-      } else {
-        this.setState({ isLoginButtonDisabled: true });
-      }
+      } else { this.setState({ isLoginButtonDisabled: true }); }
     });
   }
 
-  saveUser() {
+  onSaveUser() {
     const { loginName } = this.state;
 
     this.setState(
       { loading: true },
       async () => {
         await createUser({ name: loginName });
-        this.setState({ logged: true });
+        this.setState({ loading: false, logged: true });
       },
     );
   }
@@ -56,30 +54,28 @@ export default class Login extends React.Component {
       <div data-testid="page-login">
         { logged === true && <Redirect to="/search" /> }
         { loading === true ? <Loading /> : (
-          <>
+          <form>
             <h2>Login</h2>
-            <form>
-              <label htmlFor="login-name-input">
-                <input
-                  data-testid="login-name-input"
-                  type="textarea"
-                  placeholder="Seu nome"
-                  name="loginName"
-                  value={ loginName }
-                  onChange={ this.onLoginButtonClick }
-                />
-              </label>
-              <button
-                data-testid="login-submit-button"
-                type="submit"
-                name="isLoginButtonDisabled"
-                disabled={ isLoginButtonDisabled }
-                onClick={ this.saveUser }
-              >
-                Entrar
-              </button>
-            </form>
-          </>)}
+            <label htmlFor="login-name-input">
+              <input
+                data-testid="login-name-input"
+                type="textarea"
+                placeholder="Seu nome"
+                name="loginName"
+                value={ loginName }
+                onChange={ this.onLoginInputChange }
+              />
+            </label>
+            <button
+              data-testid="login-submit-button"
+              type="submit"
+              name="loginButton"
+              disabled={ isLoginButtonDisabled }
+              onClick={ this.onSaveUser }
+            >
+              Entrar
+            </button>
+          </form>)}
       </div>
     );
   }
