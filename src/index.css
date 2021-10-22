@@ -23,5 +23,14 @@ header {
 .loading {
   align-items: center;
   display: flex;
-  justify-content: center;
+}
+
+.links {
+  display: flex;
+  flex-direction: column;
+  text-align: start;
+}
+
+.header-component {
+  border: solid gray 1px;
 }
