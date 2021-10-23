@@ -13,14 +13,16 @@ export default class Card extends React.Component {
 
     return (
       <div className="album-card">
-        <h1 data-testid="name-card">{ artistName }</h1>
-        <img data-testid="image-card" src={ artworkUrl100 } alt={ artistName } />
-        <br />
-        <span data-testid="description-card">{ collectionName }</span>
         <Link
+          className="album-card-center"
           data-testid={ `link-to-album-${collectionId}` }
           to={ `/album/${collectionId}` }
-        />
+        >
+          <h1 data-testid="name-card">{ artistName }</h1>
+          <img data-testid="image-card" src={ artworkUrl100 } alt={ artistName } />
+          <br />
+          <span data-testid="description-card">{ collectionName }</span>
+        </Link>
       </div>
     );
   }
