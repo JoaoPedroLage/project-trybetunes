@@ -8,21 +8,21 @@ export default class Album extends React.Component {
   constructor() {
     super();
 
-    this.ongetMusics = this.ongetMusics.bind(this);
+    this.onGetMusics = this.onGetMusics.bind(this);
 
     this.state = {
       artistName: '',
       albumName: '',
       arrayArtist: [],
-      loading: 'false',
+      loading: false,
     };
   }
 
   componentDidMount() {
-    this.ongetMusics();
+    this.onGetMusics();
   }
 
-  ongetMusics() {
+  onGetMusics() {
     this.setState(
       { loading: true },
       async () => {
@@ -36,7 +36,6 @@ export default class Album extends React.Component {
           arrayArtist: request,
           loading: false,
         });
-        this.renderMusicCards();
       },
     );
   }
