@@ -16,7 +16,7 @@ export default class Login extends React.Component {
     super();
 
     this.onLoginInputChange = this.onLoginInputChange.bind(this);
-    this.onCreateUser = this.onCreateUser.bind(this);
+    this.onSaveUser = this.onSaveUser.bind(this);
 
     this.state = {
       ...defautState,
@@ -36,7 +36,7 @@ export default class Login extends React.Component {
     });
   }
 
-  onCreateUser() {
+  onSaveUser() {
     const { loginName } = this.state;
 
     this.setState(
@@ -71,7 +71,7 @@ export default class Login extends React.Component {
               type="submit"
               name="loginButton"
               disabled={ isLoginButtonDisabled }
-              onClick={ this.onCreateUser }
+              onClick={ this.onSaveUser }
             >
               Entrar
             </button>
