@@ -23,11 +23,11 @@ export default class Album extends React.Component {
   }
 
   onGetMusics() {
+    const { match: { params: { id } } } = this.props;
+
     this.setState(
       { loading: true },
       async () => {
-        const { match: { params: { id } } } = this.props;
-
         const request = await getMusics(id);
         await request;
         this.setState({
